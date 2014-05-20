@@ -15,13 +15,13 @@ void score(Board inBoard)
     full = false;
     empty= false;
     for(int j=0 ; j<ROW&&(!full) ; j++) if(inBoard.colorBoard[j][i]==BGC){ full=true; }
-    if(!full){toDelete++; continue;}
+    if(!full){toDelete++;levelCnt++; continue;}
     for(int j=0 ; move>=0&&j<ROW ; j++) inBoard.colorBoard[j][move] = inBoard.colorBoard[j][i];
     move--;
   }
   if(toDelete!=0) inBoard.rePaint();
   scoreSum += toDelete*scoreMultiplier;
-  if(toDelete!=0 && (scoreSum/100)%3==0){  DURATION=DURATION-5; LEVEL++;  scoreMultiplier=scoreMultiplier+50;}
+  if(toDelete!=0 && levelCnt>LEVEL*3){  DURATION=DURATION-5; LEVEL++;  scoreMultiplier=scoreMultiplier+50;}
   scoreBox.text = "score : "+scoreSum.toString()+"\n"+"Level "+LEVEL.toString();
   
 }

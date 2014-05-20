@@ -57,8 +57,7 @@ class Board
             _screenBoard[px+i-2][py+j-2].style.backgroundColor=colorToString(toPaint.brick[i][j]);
           }
         }
-    if(flag) gameOver();
-      
+    if(flag) gameOver();   
   }
   void rePaint()
   {

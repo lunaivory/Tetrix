@@ -26,6 +26,7 @@ const PPL = 6;
 const LEFT = 37;
 const RIGHT = 39;
 const DOWN = 40;
+const UP = 0;
 
 const String strRED="#FF8B8B";
 const String strORG="#FFB68B";
@@ -47,6 +48,7 @@ int scoreSum;
 bool end=false;
 
 int LEVEL=0;
+int levelCnt=0;
 int DURATION=50;
 int scoreMultiplier=100;
 Animator animator = new Animator();
@@ -54,11 +56,13 @@ Animator animator = new Animator();
 void init()
 {
   usr = new User();
+  scoreBox = new DivElement();
   LEVEL=0;
+  levelCnt=0;
   DURATION=50;
   scoreMultiplier=100;
-  scoreBox = document.getElementById("scoreCSS");
   scoreBox.classes.add("score_box");
+  document.body.nodes.add(scoreBox);
   scoreBox.text = "Score : 0"+" "+"Level "+LEVEL.toString();
   scoreSum=0;
   createShape();
@@ -72,8 +76,10 @@ void startGame()
 }
 void gameOver()
 {
+  print("gameOver");
   end = true;
-  animator.stop();
   theEnd = new DivElement();
+  document.body.nodes.add(theEnd);
   theEnd.classes.add("end_box");
+  animator.stop();
 }

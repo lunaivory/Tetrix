@@ -27,8 +27,10 @@ void toMove(Tetra inTetra, Board inBoard)
               inTetra.down(inBoard);
               usr.timeReset();
               break;
-            default://ROTATE
+            case UP://ROTATE
               inTetra.rotate(inBoard);
+              break;
+            default:
               break;
           }
           inBoard.doPaint(inTetra);
