@@ -26,7 +26,9 @@ const PPL = 6;
 const LEFT = 37;
 const RIGHT = 39;
 const DOWN = 40;
-const UP = 0;
+const UP = 38;
+const ALT = 18;
+const PKEY = 80;
 
 const String strRED="#FF8B8B";
 const String strORG="#FFB68B";
@@ -36,6 +38,7 @@ const String strCYN="#9FFFFF";
 const String strBLU="#9FCCFF";
 const String strPPL="#E69FFF";
 const String strBGC="black";
+const String OPACITYPVW = "0.3";
 Random random = new Random();
 
 User usr;
@@ -46,6 +49,7 @@ DivElement scoreBox, levelBox;
 DivElement theEnd;
 int scoreSum;
 bool end=false;
+bool pause=false;
 
 int LEVEL=0;
 int levelCnt=0;
@@ -78,8 +82,10 @@ void gameOver()
 {
   print("gameOver");
   end = true;
+  pause = true;
   theEnd = new DivElement();
   document.body.nodes.add(theEnd);
   theEnd.classes.add("end_box");
+  theEnd.text="The End QQ";
   animator.stop();
 }

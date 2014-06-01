@@ -6,29 +6,17 @@ import 'score.dart';
 class Tetra
 {
   
-  int color,x,y,r;
+  int color,x,y,r,nextcolor;
   List<List<int>> brick;
-
+  Tetra(){nextcolor = random.nextInt(SUM);}
   void create(Board inBoard)
   {
-    x=5;y=2;r=0;
-    color = random.nextInt(SUM);
+    x=5;y=1;r=0;
+    color = nextcolor;
+    nextcolor = random.nextInt(SUM);
     brick = shape[color][r];
     var cnt=0;
-    bool flag=false;
-    for(cnt=0 ; cnt<5 ; cnt++)
-    {
-      for(int j=0 ; j<5 ; j++)
-      {
-        if(brick[j][cnt]!=BGC) flag=true; 
-        if(flag) break;
-      }
-      if(flag)break;
-    }
-    y=y-cnt;
-    flag = false;
-    while(check(inBoard)){  y--; flag=true;}
-    if(flag) y++;
+    while(check(inBoard)){  y--; }
   }
   void left(Board inBoard)
   {
@@ -40,10 +28,15 @@ class Tetra
     x++;
     if(check(inBoard)) x--;
   }
-  void down(Board inBoard)
+  void toBottom(Board inBoard)
   {
     while(!check(inBoard))  y++;
     y--;
+  }
+  void down(Board inBoard)
+  {
+    y++;
+    if(check(inBoard)) y--;
   }
   void rotate(Board inBoard)
   {
@@ -64,19 +57,25 @@ class Tetra
   {
     y++;
     if(check(inBoard)){y--; fixed(inBoard);}
-  }
+  } 
   bool check(Board inBoard)
   {
+    var cnt=0;
     for(int i=0 ; i<5 ; i++)
       for(int j=0 ; j<5 ; j++)
         if(brick[i][j]==BGC)  continue;
-        else if(x-2+i>=0&&x-2+i<ROW && y-2+j>=0 && y-2+j<COL && inBoard.colorBoard[x-2+i][y-2+j]!=BGC) return true;
-        else if(x-2+i<0 || x-2+i>=ROW ||y-2+j<0 || y-2+j>=COL) return true;
+        else if(x-2+i>=0&&x-2+i<ROW&&y-2+j>=0 && y-2+j<COL && inBoard.colorBoard[x-2+i][y-2+j]!=BGC){return true;}
+        else if(x-2+i<0 || x-2+i>=ROW || y-2+j>=COL)return true;
+        else if(y-2+j>=0) cnt++;
+    if(cnt<=0) return true;
     return false;
   }
   void fixed(Board inBoard)
   {
     inBoard.doPaint(this);
+    for(int i=0 ; i<5 ; i++)
+      for(int j=0 ; j<5 ; j++)
+        if(brick[i][j]!=BGC && y-2+j<0){ gameOver();  return;}
     score(inBoard);
     this.create(inBoard);
     inBoard.doPaint(this);

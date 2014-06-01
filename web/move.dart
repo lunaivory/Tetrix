@@ -30,6 +30,14 @@ void toMove(Tetra inTetra, Board inBoard)
             case UP://ROTATE
               inTetra.rotate(inBoard);
               break;
+            case ALT:
+              inTetra.toBottom(inBoard);
+              inTetra.fixed(inBoard);
+              usr.timeReset();
+              break;
+            case PKEY:
+              if(!end)pause = !pause;
+              break;
             default:
               break;
           }

@@ -20,6 +20,7 @@ class User implements Actor
   void timeReset(){_times=0;}
   void next(num time)
   {
+    if(pause && !end) return;
     if(_times>=DURATION)
     {
       usrBoard.unPaint(usrTetra);

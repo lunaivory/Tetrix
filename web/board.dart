@@ -33,12 +33,15 @@ class Board
   {
     var px=toPaint.x;
     var py=toPaint.y;
+    var pdx=toPaint.dx;
+    var pdy=toPaint.dy;
     for(int i=0 ; i<5 ; i++)
       for(int j=0 ; j<5 ; j++)
         if(toPaint.brick[i][j]!=BGC && px+i-2>=0 && px+i-2<ROW && py+j-2>=0 && py+j-2<COL)
         {
           colorBoard[px+i-2][py+j-2] = BGC;
-          _screenBoard[px+i-2][py+j-2].style.backgroundColor=colorToString(BGC);
+          _screenBoard[ px+i-2][ py+j-2].style.backgroundColor=colorToString(BGC);
+          _screenBoard[pdx+i-2][ddy+j-2].style.backgroundColor=colorToString(BGC);
         }
   }
   void doPaint(Tetra toPaint)
@@ -56,8 +59,7 @@ class Board
             colorBoard[px+i-2][py+j-2] = toPaint.brick[i][j];
             _screenBoard[px+i-2][py+j-2].style.backgroundColor=colorToString(toPaint.brick[i][j]);
           }
-        }
-    if(flag) gameOver();   
+        }  
   }
   void rePaint()
   {
