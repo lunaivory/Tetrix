@@ -18,10 +18,10 @@ void createShape()
       }
     }
   }
-  List<int> rX0=[1,1,2,3],rY0=[3,2,2,2];
-  List<int> rX1=[1,2,2,2],rY1=[1,1,2,3];
-  List<int> rX2=[1,2,3,3],rY2=[2,2,2,1];
-  List<int> rX3=[2,2,2,3],rY3=[1,2,3,3];
+  List<int> rX0=[1,2,3,3],rY0=[2,2,2,1];
+  List<int> rX1=[2,2,2,3],rY1=[1,2,3,3];
+  List<int> rX2=[1,1,2,3],rY2=[3,2,2,2];
+  List<int> rX3=[1,2,2,2],rY3=[1,1,2,3];
   paintShape(rX0,rY0,RED,0);
   paintShape(rX1,rY1,RED,1);
   paintShape(rX2,rY2,RED,2);
