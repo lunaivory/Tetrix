@@ -29,6 +29,7 @@ class User implements Actor
       usrBoard.unPreview(usrTetra);
       usrBoard.unPaint(usrTetra);
       usrTetra.drop(usrBoard);
+      usrBoard.unPreview(usrTetra);
       usrBoard.doPreview(usrTetra);
       usrBoard.doPaint(usrTetra);
       _times=0;

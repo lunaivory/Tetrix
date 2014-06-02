@@ -99,6 +99,7 @@ class Tetra
     usr.timeReset();
     print("new");
     this.create(inBoard);
+    inBoard.unPreview(this);
     inBoard.doPreview(this);
     inBoard.doPaint(this);
   }
