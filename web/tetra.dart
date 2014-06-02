@@ -6,17 +6,25 @@ import 'score.dart';
 class Tetra
 {
   
-  int color,x,y,r,nextcolor;
+  int color,x,y,r,nextcolor,dx, dy;
   List<List<int>> brick;
   Tetra(){nextcolor = random.nextInt(SUM);}
   void create(Board inBoard)
   {
-    x=5;y=1;r=0;
+    x=5;y=0;r=0;
     color = nextcolor;
     nextcolor = random.nextInt(SUM);
     brick = shape[color][r];
     var cnt=0;
     while(check(inBoard)){  y--; }
+    this.getPreview(inBoard);
+  }
+  void getPreview(Board inBoard)
+  {
+    dx = x;
+    dy = y;
+    while(!checkPreview(inBoard)) dy++;
+    dy--;
   }
   void left(Board inBoard)
   {
@@ -70,14 +78,28 @@ class Tetra
     if(cnt<=0) return true;
     return false;
   }
+  bool checkPreview(Board inBoard)
+  {
+    var cnt=0;
+    for(int i=0 ; i<5 ; i++)
+      for(int j=0 ; j<5 ; j++)
+        if(brick[i][j]==BGC)  continue;
+        else if(dx-2+i>=0 && dx-2+i<ROW && dy-2+j>=0 && dy-2+j<COL && inBoard.colorBoard[dx-2+i][dy-2+j]!=BGC){return true;}
+        else if(dx-2+i<0 || dx-2+i>=ROW || dy-2+j>=COL)return true;
+        else if(dy-2+j>=0) cnt++;
+    if(cnt<=0) return true;
+    return false;
+  }
   void fixed(Board inBoard)
   {
+    inBoard.unPreview(this);
     inBoard.doPaint(this);
     for(int i=0 ; i<5 ; i++)
       for(int j=0 ; j<5 ; j++)
         if(brick[i][j]!=BGC && y-2+j<0){ gameOver();  return;}
     score(inBoard);
     this.create(inBoard);
+    inBoard.doPreview(this);
     inBoard.doPaint(this);
   }
 }

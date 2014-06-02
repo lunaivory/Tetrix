@@ -14,7 +14,8 @@ void toMove(Tetra inTetra, Board inBoard)
           if(end) return;
           var oldTetra;
           oldTetra = inTetra;
-          inBoard.unPaint(inTetra);
+          inBoard.unPaint(oldTetra);
+          inBoard.unPreview(oldTetra);
           switch(evt.keyCode)
           {
             case LEFT:
@@ -41,6 +42,7 @@ void toMove(Tetra inTetra, Board inBoard)
             default:
               break;
           }
+          inBoard.doPreview(inTetra);
           inBoard.doPaint(inTetra);
         }
       );

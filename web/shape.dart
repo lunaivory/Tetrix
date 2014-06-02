@@ -59,10 +59,10 @@ void createShape()
   paintShape(bX1,bY1,BLU,1);
   paintShape(bX0,bY0,BLU,2);
   paintShape(bX1,bY1,BLU,3);
-  List<int> pX0=[2,2,2,2],pY0=[0,1,2,3];
-  List<int> pX1=[1,2,3,4],pY1=[2,2,2,2];
-  List<int> pX2=[2,2,2,2],pY2=[1,2,3,4];
-  List<int> pX3=[0,1,2,3],pY3=[2,2,2,2];
+  List<int> pX0=[1,2,3,4],pY0=[2,2,2,2];
+  List<int> pX1=[2,2,2,2],pY1=[1,2,3,4];
+  List<int> pX2=[0,1,2,3],pY2=[2,2,2,2];
+  List<int> pX3=[2,2,2,2],pY3=[0,1,2,3];
   paintShape(pX0,pY0,PPL,0);
   paintShape(pX1,pY1,PPL,1);
   paintShape(pX2,pY2,PPL,2);

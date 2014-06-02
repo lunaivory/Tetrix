@@ -29,20 +29,42 @@ class Board
       for(int j=0 ; j<COL ; j++)
         colorBoard[i][j]=BGC;
   }
-  void unPaint(Tetra toPaint)
+  void doPreview(Tetra toPaint)
   {
-    var px=toPaint.x;
-    var py=toPaint.y;
+    toPaint.getPreview(this);
     var pdx=toPaint.dx;
     var pdy=toPaint.dy;
     for(int i=0 ; i<5 ; i++)
       for(int j=0 ; j<5 ; j++)
-        if(toPaint.brick[i][j]!=BGC && px+i-2>=0 && px+i-2<ROW && py+j-2>=0 && py+j-2<COL)
+        if(toPaint.brick[i][j]!=BGC)
         {
-          colorBoard[px+i-2][py+j-2] = BGC;
-          _screenBoard[ px+i-2][ py+j-2].style.backgroundColor=colorToString(BGC);
-          _screenBoard[pdx+i-2][ddy+j-2].style.backgroundColor=colorToString(BGC);
+          if(pdx+i-2>=0 && pdx+i-2<ROW && pdy+j-2>=0 && pdy+j-2<COL && colorBoard[pdx+i-2][pdy+j-2]==BGC)          
+            _screenBoard[pdx+i-2][pdy+j-2].style.boxShadow = "inset 0 0 2px 2px white";        
         }
+  }
+  void unPreview(Tetra toPaint)
+  {
+    var pdx=toPaint.dx;
+    var pdy=toPaint.dy;
+    for(int i=0 ; i<5 ; i++)
+      for(int j=0 ; j<5 ; j++)
+        if(toPaint.brick[i][j]!=BGC)
+        {
+          if(pdx+i-2>=0 && pdx+i-2<ROW && pdy+j-2>=0 && pdy+j-2<COL)          
+            _screenBoard[pdx+i-2][pdy+j-2].style.boxShadow = "inset 0 0 0px 0px black";        
+        }
+  }
+  void unPaint(Tetra toPaint)
+  {
+    var px=toPaint.x;
+    var py=toPaint.y;
+    for(int i=0 ; i<5 ; i++)
+      for(int j=0 ; j<5 ; j++)
+          if(toPaint.brick[i][j]!=BGC && toPaint.brick[i][j]!=BGC && px+i-2>=0 && px+i-2<ROW && py+j-2>=0 && py+j-2<COL)
+          {
+            colorBoard[px+i-2][py+j-2] = BGC;
+            _screenBoard[ px+i-2][ py+j-2].style.backgroundColor=colorToString(BGC);
+          }
   }
   void doPaint(Tetra toPaint)
   {
@@ -58,15 +80,10 @@ class Board
           {
             colorBoard[px+i-2][py+j-2] = toPaint.brick[i][j];
             _screenBoard[px+i-2][py+j-2].style.backgroundColor=colorToString(toPaint.brick[i][j]);
-          }
+          }          
         }  
   }
-  void rePaint()
-  {
-    for(int i=0 ; i<ROW ; i++)
-      for(int j=0 ; j<COL ; j++)
-        _screenBoard[i][j].style.backgroundColor=colorToString(colorBoard[i][j]);
-  }
+
   String colorToString(int hue)
   {
     switch(hue)
