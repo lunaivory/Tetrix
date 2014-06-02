@@ -14,8 +14,8 @@ void toMove(Tetra inTetra, Board inBoard)
           if(end) return;
           if(evt != PKEY &&pause) return;
           print("$debugg move1");
-          inBoard.unPreview(inTetra);
           inBoard.unPaint(inTetra);
+          inBoard.unPreview(inTetra);
           switch(evt.keyCode)
           {
             case LEFT:
@@ -43,6 +43,7 @@ void toMove(Tetra inTetra, Board inBoard)
               break;
           }
           print("$debugg move2");
+          inBoard.unPreview(inTetra);
           inBoard.doPreview(inTetra);
           inBoard.doPaint(inTetra);
         }
