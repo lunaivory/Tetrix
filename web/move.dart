@@ -12,7 +12,7 @@ void toMove(Tetra inTetra, Board inBoard)
         (KeyboardEvent evt)
         {
           if(end) return;
-          if(evt != PKEY &&pause) return;
+          if(evt.keyCode != PKEY &&pause) return;
           print("$debugg move1");
           inBoard.unPaint(inTetra);
           inBoard.unPreview(inTetra);
@@ -37,7 +37,7 @@ void toMove(Tetra inTetra, Board inBoard)
               usr.timeReset();
               break;
             case PKEY:
-              if(!end)pause = !pause;
+              if(!end) pause = !pause;
               break;
             default:
               break;
