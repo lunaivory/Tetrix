@@ -6,16 +6,16 @@ import 'user.dart';
 import 'move.dart';
 import 'dart:html';
 
-const ROW = 11;
-const COL = 21;//column
+const ROW = 9;
+const COL = 22;//column
 
-const BDX = 425;//board left of css
-const BDY = 100;//board top of css
-const LEN = 20;//the length of a block in css
+const BDX = 8;//board left of css
+const BDY = 6;//board top of css
+const LEN = 26;//the length of a block in css
 
-const PBX = 700;
-const PBY = 140;
-const PLEN= 10;
+const PBX = 253;
+const PBY = 80;
+const PLEN= 16;
 
 const SUM = 7;//kinds of brick style
 const BGC = -1;
@@ -52,6 +52,8 @@ List<List<DivElement>> previewBox;
 
 DivElement scoreBox, levelBox;
 DivElement theEnd;
+InputElement name_input;
+String name_string;
 int scoreSum;
 bool end=false;
 bool pause=false;
@@ -64,6 +66,20 @@ int debugg=0;
 int nextcolor;
 Animator animator = new Animator();
 
+void startPressListener(){
+  Element startButton;
+  startButton = querySelector('.button');
+  startButton.onClick.listen((MouseEvent evt){
+   print('here');
+   name_input = querySelector('.textbox');
+   name_string = name_input.value;
+   querySelector('.start_page').classes.add('disappear');
+   querySelector('.game_page').classes.remove('disappear');
+   init();
+   startGame();  
+  });
+}
+
 void init()
 {
   usr = new User();
@@ -74,9 +90,9 @@ void init()
   DURATION=50;
   scoreMultiplier=100;
   scoreBox.classes.add("text_box");
-  document.body.nodes.add(scoreBox);
+  querySelector('.box').nodes.add(scoreBox);
   levelBox.classes.add("text_box");
-  document.body.nodes.add(levelBox);
+  querySelector('.box').nodes.add(levelBox);
   levelBox.style.left = "430px";
   levelBox.style.top  = "520px";
   scoreBox.style.left = "470px";
@@ -99,10 +115,39 @@ void gameOver()
   print("gameOver");
   end = true;
   pause = true;
-  theEnd = new DivElement();
-  document.body.nodes.add(theEnd);
-  theEnd.classes.add("end_box");
-  theEnd.text="The End QQ";
+  DivElement name, score;
+
+ // theEnd = new DivElement();
+  querySelector('.preview_block').classes.add('disapeear');
+  querySelector('.block').classes.add('disappear');
+  querySelector('.game_page').classes.add('disappear');
+  if( scoreSum >= 2000 ){
+    querySelector('.high_result').classes.remove('disappear');
+    name = querySelector('.textbox1_1');
+    name.text = name_string;
+    score = querySelector('.textbox2_1');
+    print(score);
+    score.text = scoreSum.toString();
+    print(score);
+  }else if( 1000 <= scoreSum && scoreSum < 2000 ){
+    querySelector('.medium_result').classes.remove('disappear');
+    name = querySelector('.textbox1_2');
+    name.text = name_string;
+    print(score);
+    score = querySelector('.textbox2_2');
+    score.text = scoreSum.toString();
+  }else if( scoreSum < 1000 ){
+    querySelector('.low_result').classes.remove('disappear');
+    name = querySelector('.textbox1_3');
+    name.text = name_string;
+    score = querySelector('.textbox2_3');
+    print(score);
+    score.text = scoreSum.toString();
+    print(score);
+  }
+ // document.body.nodes.add(theEnd);
+ // theEnd.classes.add("end_box");
+ // theEnd.text="The End QQ";
   animator.stop();
 }
 
@@ -134,7 +179,7 @@ void createPreviewBox()
       previewBox[i][j].style.left = (PLEN*i+PBX).toString()+"px";
       previewBox[i][j].style.top  = (PLEN*j+PBY).toString()+"px";
       previewBox[i][j].style.backgroundColor = colorToString(BGC);
-      document.body.nodes.add(previewBox[i][j]);
+      querySelector('.box').nodes.add(previewBox[i][j]);
     }
   
 } 

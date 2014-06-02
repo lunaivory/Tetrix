@@ -1,0 +1,68 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style>
+.background{
+	left:10%;
+	-webkit-animation: fadein 2s linear 0s 1;
+}
+
+@-webkit-keyframes fadein {
+    from   { opacity: 0; }
+    to { opacity: 1; }
+}
+@-webkit-keyframes fallin_end1 {
+    from   { top:0%; }
+    to     { top:52%; }
+}
+
+.result{
+	top:50%;
+	left:37%;
+	width:331px;
+	height:415px;	
+	-webkit-animation: fallin_end2 0.5s linear 0s 1;
+}
+
+.egg_1{
+	top:0%;
+	left:0%;	
+}
+
+body{
+width:100%;
+height:100%;
+}
+
+body, .egg_1, .background, .result, .textbox1_1, .textbox2_1 {
+	position:absolute;
+	margin:0;
+}
+	
+.textbox1_1{
+	top:69%;
+	left:33%;
+}
+
+.textbox2_1{
+	top:84%;
+	left:33%;
+}
+
+</style>
+<body>
+<img class="background" src="high.png" >
+
+<div class="result">
+  <img class="egg_1" src="high_page.png">
+  <input type="text1" class="textbox1_1">
+  <input type="text2" class="textbox2_1">
+</div>
+
+</body>
+
+<!-- -  -->
+</html>

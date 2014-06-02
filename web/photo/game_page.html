@@ -1,0 +1,53 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<style>
+.game_page_background{
+	top:0%;
+	left:10%;
+	width:1000px;
+	height:761px;
+	position:absoluate;
+	background-image:url('game_page-2.png');
+	background-position:center;
+	-webkit-animation: fadein 2s linear 0s 1;
+} 
+
+@-webkit-keyframes fadein {
+    from   { opacity: 0; }
+    to { opacity: 1; }
+}
+@-webkit-keyframes fallin {
+    from   { top:0%; }
+    to     { top:5%; }
+}
+.screen {
+	top:5%;
+	left:32%;
+	position:absolute;
+	-webkit-animation: fallin 0.5s linear 0s 1;
+}
+body{
+width:100%;
+height:100%;
+}
+.disappear{
+	display:none;
+}
+body, .screen, .game_page_background{
+	position:absolute;
+	margin:0;
+	}
+
+</style>
+
+<body>
+<div class="game_page_background"></div>
+<img class="screen" src="screen.png" 	width=420px height=700px>
+</body>
+</html>
+<!---webkit-animation: fadein 2s linear 0s 1; -->

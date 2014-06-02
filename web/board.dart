@@ -20,7 +20,7 @@ class Board
         _screenBoard[i][j].style.left= (LEN*i+BDX).toString()+"px";
         _screenBoard[i][j].style.top = (LEN*j+BDY).toString()+"px";
         _screenBoard[i][j].style.backgroundColor = colorToString(BGC);
-        document.body.nodes.add(_screenBoard[i][j]);
+        querySelector('.box').nodes.add(_screenBoard[i][j]);
       }
   
     colorBoard = new List(ROW);

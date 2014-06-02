@@ -7,10 +7,53 @@
     <link rel="stylesheet" href="tetrix.css">
   </head>
   <body>
-    <h1>Tetrix</h1>
-    <p>Let's play Tetrix!</p>
-    <hr>
-    <div class = "board_line"></div>
+    <div class="start_page" > <!-- line 22 ~ 106 in css -->
+       <img src='photo/start-2.png' class="background_img" width=850px height=640px>
+       <div class="name_input">
+           <img class = "egg" src="photo/test.png" width=280 height=360>
+           <img class = "button" src="photo/button.png">
+           <input type="text" class="textbox">
+       </div>  
+   </div>
+   
+    <div class="game_page disappear">  <!-- line 110 ~ 139 in css -->
+          <img src="photo/game_page-2.png" class="game_page_background" width=850px height=640px>
+          <div class="game_screen">
+             <img class="screen" src="photo/screen.png"  width=347px height=583px> 
+             <div class="box"></div>  
+          </div>
+    </div>
+    
+     <div class="high_result disappear"> <!-- line 138~182 in css -->
+      <img class="high_background" src="photo/high_page.png" width=850px height=640px >
+      <div class="result_1">
+          <img class="egg_1" src="photo/high.png" width=280 height=360>
+          <div id = "name_1" class="textbox1_1"></div>
+          <div id = "score_1" class="textbox2_1"></div>
+      </div> 
+   </div>
+   
+  <div class="medium_result disappear">
+     <img class="medium_background" src="photo/medium_page.png" width=850px height=640px >
+     <div class="result_2">
+        <img class="egg_2" src="photo/medium.png" width=280 height=360>
+        <div id = "name_2" class="textbox1_2"></div>
+        <div id= "score_2" class="textbox2_2"></div>
+      </div>  
+  </div>
+  
+  
+  <div class="low_result disappear">
+      <img class="low_background" src="photo/low_page.png"  width=850px height=640px>
+       <div class="result_3">
+          <img class="egg_3" src="photo/low.png" width=280 height=360>
+          <div id = "name_3" class="textbox1_3"></div>
+          <div id = "score_3" class="textbox2_3"></div>
+       </div>
+  </div>
+   
+    
+
     <script type="application/dart" src="tetrix.dart"></script>
     <script src="packages/browser/dart.js"></script>
   </body>

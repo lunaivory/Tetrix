@@ -1,0 +1,108 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+<style>
+.background_img{
+	left:10%;
+}
+
+.egg{
+	top:0%;
+	left:0%;
+}
+.textbox{
+	top:70%;
+	left:30%;
+	background:white;
+	
+}
+
+.button{
+	top:77%;
+	left:33%;
+	width:109px;
+}
+
+.button:hover{
+	top:76%;
+	left:31%;
+	width:125px;
+	-webkit-animation:resize_hover 0.1s linear 0s 1;
+}
+
+.button:active{
+    top:77%;
+	left:33%;
+	width:109px;
+	-webkit-animation:resize_active 0.1s linear 0s 1;
+}
+
+.name_input{
+	top:50%;
+	left:38%;
+	width:331px;
+	height:415px;
+	-webkit-animation: test 0.5s linear 0s 1;
+}
+
+body{
+width:100%;
+height:100%;
+}
+
+.disappear{
+	display:none;
+}
+body, .egg, .textbox, .background_img, .button, .name_input{
+	position:absolute;
+	margin:0;
+}
+
+@-webkit-keyframes test{
+	0%  { top:0%;  }
+	50% {  top:20%; }
+	100% {  top:50%; }
+}
+
+@-webkit-keyframes input{
+	0%  { top:0%;  }
+	50% {  top:20%; }
+	100% {  top:97%; }
+}
+
+@-webkit-keyframes button{
+	0%  { top:0%;  }
+	50% {  top:20%; }
+	100% {  top:103%; }
+}
+
+@-webkit-keyframes resize_hover
+{
+   from    {  top:77%; left:33%; width:109px; }
+   to      {  top:76%; left:31%; width:125px; }
+}
+@-webkit-keyframes resize_active
+{
+    0%    { top:76%; left:31%; width:125px;  }
+    75%      { top:78%; left:35%; width:93px; }
+	100%   { top:77%; left:33%; width:109px; }
+}
+
+</style>
+
+<body> 
+ 
+ <img src='start-2.png' class="background_img">
+ <div class="name_input">
+  <img class = "egg" src="test.png">
+  <img class = "button" src="button.png">
+  <input type="text" class="textbox">
+  </div>
+  
+ 
+</body>
+<!--	 -->
+</html>
