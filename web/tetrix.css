@@ -49,12 +49,11 @@ h1, p {
   width  : 10px;
 }
 
-.score_box
+.text_box
 {
   position : absolute;
   left : 410px;
   top  : 520px;
-  background-color : #F8F8F8;
   heigh : 200px;
   width : 200px;
   font-size : 16pt;
@@ -62,7 +61,6 @@ h1, p {
   margin : 15px;
   padding: 10px;
   color  : black;
-  outline: gray double 5px;
 }
 
 .board_line

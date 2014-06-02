@@ -68,13 +68,21 @@ void init()
 {
   usr = new User();
   scoreBox = new DivElement();
+  levelBox = new DivElement();
   LEVEL=0;
   levelCnt=0;
   DURATION=50;
   scoreMultiplier=100;
-  scoreBox.classes.add("score_box");
+  scoreBox.classes.add("text_box");
   document.body.nodes.add(scoreBox);
-  scoreBox.text = "Score : 0"+" "+"Level "+LEVEL.toString();
+  levelBox.classes.add("text_box");
+  document.body.nodes.add(levelBox);
+  levelBox.style.left = "430px";
+  levelBox.style.top  = "520px";
+  scoreBox.style.left = "470px";
+  scoreBox.style.top  = "520px";
+  levelBox.text = "0";
+  scoreBox.text = "0";
   scoreSum=0;
   createShape();
   createPreviewBox();

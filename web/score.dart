@@ -22,7 +22,8 @@ void score(Board inBoard)
   if(toDelete!=0) inBoard.rePaint();
   scoreSum += toDelete*scoreMultiplier;
   if(toDelete!=0 && levelCnt>LEVEL*3){  DURATION=DURATION-5; LEVEL++;  scoreMultiplier=scoreMultiplier+50;}
-  scoreBox.text = "score : "+scoreSum.toString()+"\n"+"Level "+LEVEL.toString();
+  scoreBox.text = scoreSum.toString();
+  levelBox.text = LEVEL.toString();
   
 }
 
