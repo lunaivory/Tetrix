@@ -34,14 +34,14 @@ const UP = 38;
 const ALT = 18;
 const PKEY = 80;
 
-const String strRED="#FF8B8B";
-const String strORG="#FFB68B";
-const String strYLW="#FFFF60";
-const String strGRN="#AAFF94";
-const String strCYN="#9FFFFF";
-const String strBLU="#9FCCFF";
-const String strPPL="#E69FFF";
-const String strBGC="black";
+const String strRED="#FF3948";
+const String strORG="#FFA76C";
+const String strYLW="#FFE66C";
+const String strGRN="#DCFF48";
+const String strCYN="#7BEFFF";
+const String strBLU="#508AFF";
+const String strPPL="#E26CFF";
+const String strBGC="white";
 const String OPACITYPVW = "0.3";
 Random random = new Random();
 
@@ -93,10 +93,10 @@ void init()
   querySelector('.box').nodes.add(scoreBox);
   levelBox.classes.add("text_box");
   querySelector('.box').nodes.add(levelBox);
-  levelBox.style.left = "430px";
-  levelBox.style.top  = "520px";
-  scoreBox.style.left = "470px";
-  scoreBox.style.top  = "520px";
+  scoreBox.style.left = "170px";
+  scoreBox.style.top  = "435px";
+  levelBox.style.left = "170px";
+  levelBox.style.top  = "500px";
   levelBox.text = "0";
   scoreBox.text = "0";
   scoreSum=0;

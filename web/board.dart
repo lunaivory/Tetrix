@@ -40,7 +40,7 @@ class Board
         if(toPaint.brick[i][j]!=BGC)
         {
           if(pdx+i-2>=0 && pdx+i-2<ROW && pdy+j-2>=0 && pdy+j-2<COL && colorBoard[pdx+i-2][pdy+j-2]==BGC)          
-            _screenBoard[pdx+i-2][pdy+j-2].style.boxShadow = "inset 0 0 2px 2px white";        
+            _screenBoard[pdx+i-2][pdy+j-2].style.boxShadow = "inset 0 0 2px 2px #E5E5E5";        
         }
   }
   void unPreview(Tetra toPaint)
