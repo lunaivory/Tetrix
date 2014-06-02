@@ -12,10 +12,10 @@ void toMove(Tetra inTetra, Board inBoard)
         (KeyboardEvent evt)
         {
           if(end) return;
-          var oldTetra;
-          oldTetra = inTetra;
-          inBoard.unPaint(oldTetra);
-          inBoard.unPreview(oldTetra);
+          if(evt != PKEY &&pause) return;
+          print("$debugg move1");
+          inBoard.unPreview(inTetra);
+          inBoard.unPaint(inTetra);
           switch(evt.keyCode)
           {
             case LEFT:
@@ -42,6 +42,7 @@ void toMove(Tetra inTetra, Board inBoard)
             default:
               break;
           }
+          print("$debugg move2");
           inBoard.doPreview(inTetra);
           inBoard.doPaint(inTetra);
         }

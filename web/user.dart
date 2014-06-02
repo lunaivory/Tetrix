@@ -15,6 +15,8 @@ class User implements Actor
   {
     usrTetra = new Tetra();
     usrTetra.create(usrBoard);
+    print("First Create");
+    usrBoard.doPreview(usrTetra);
     usrBoard.doPaint(usrTetra);
   }
   void timeReset(){_times=0;}
@@ -23,8 +25,11 @@ class User implements Actor
     if(pause && !end) return;
     if(_times>=DURATION)
     {
+      print("$debugg next");
+      usrBoard.unPreview(usrTetra);
       usrBoard.unPaint(usrTetra);
       usrTetra.drop(usrBoard);
+      usrBoard.doPreview(usrTetra);
       usrBoard.doPaint(usrTetra);
       _times=0;
     }

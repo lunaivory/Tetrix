@@ -34,6 +34,7 @@ class Board
     toPaint.getPreview(this);
     var pdx=toPaint.dx;
     var pdy=toPaint.dy;
+    print("$debugg doPreview => ${(pdx)}  ${pdy}");
     for(int i=0 ; i<5 ; i++)
       for(int j=0 ; j<5 ; j++)
         if(toPaint.brick[i][j]!=BGC)
@@ -46,14 +47,23 @@ class Board
   {
     var pdx=toPaint.dx;
     var pdy=toPaint.dy;
+    print("$debugg unPreview => ${(pdx)}  ${pdy}");
     for(int i=0 ; i<5 ; i++)
       for(int j=0 ; j<5 ; j++)
         if(toPaint.brick[i][j]!=BGC)
         {
-          if(pdx+i-2>=0 && pdx+i-2<ROW && pdy+j-2>=0 && pdy+j-2<COL)          
-            _screenBoard[pdx+i-2][pdy+j-2].style.boxShadow = "inset 0 0 0px 0px black";        
+          if(pdx+i-2>=0 && pdx+i-2<ROW && pdy+j-2>=0 && pdy+j-2<COL){          
+            _screenBoard[pdx+i-2][pdy+j-2].style.boxShadow = "inset 0 0 0px 0px";  
+          }
         }
   }
+  void rePaint()
+  {
+    for(int i=0 ; i<ROW ; i++)
+      for(int j=0 ; j<COL ; j++)
+        _screenBoard[i][j].style.backgroundColor=colorToString(colorBoard[i][j]);
+  }
+  
   void unPaint(Tetra toPaint)
   {
     var px=toPaint.x;
@@ -82,22 +92,6 @@ class Board
             _screenBoard[px+i-2][py+j-2].style.backgroundColor=colorToString(toPaint.brick[i][j]);
           }          
         }  
-  }
-
-  String colorToString(int hue)
-  {
-    switch(hue)
-    {
-      case(RED): return(strRED);  break;
-      case(ORG): return(strORG);  break;
-      case(YLW): return(strYLW);  break;
-      case(GRN): return(strGRN);  break;
-      case(CYN): return(strCYN);  break;
-      case(BLU): return(strBLU);  break;
-      case(PPL): return(strPPL);  break;
-      case(BGC): return(strBGC);  break;
-      default:   return(strBGC);  break;
-    }
   }
   
 }

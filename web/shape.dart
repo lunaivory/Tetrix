@@ -18,18 +18,18 @@ void createShape()
       }
     }
   }
-  List<int> rX0=[2,2,2,3],rY0=[1,2,3,3];
-  List<int> rX1=[1,1,2,3],rY1=[3,2,2,2];
-  List<int> rX2=[1,2,2,2],rY2=[1,1,2,3];
-  List<int> rX3=[1,2,3,3],rY3=[2,2,2,1];
+  List<int> rX0=[1,1,2,3],rY0=[3,2,2,2];
+  List<int> rX1=[1,2,2,2],rY1=[1,1,2,3];
+  List<int> rX2=[1,2,3,3],rY2=[2,2,2,1];
+  List<int> rX3=[2,2,2,3],rY3=[1,2,3,3];
   paintShape(rX0,rY0,RED,0);
   paintShape(rX1,rY1,RED,1);
   paintShape(rX2,rY2,RED,2);
   paintShape(rX3,rY3,RED,3);
-  List<int> oX0=[1,2,2,2],oY0=[3,3,2,1];
-  List<int> oX1=[1,1,2,3],oY1=[1,2,2,2];
-  List<int> oX2=[2,2,2,3],oY2=[3,2,1,1];
-  List<int> oX3=[1,2,3,3],oY3=[2,2,2,3];
+  List<int> oX0=[1,1,2,3],oY0=[1,2,2,2];
+  List<int> oX1=[2,2,2,3],oY1=[3,2,1,1];
+  List<int> oX2=[1,2,3,3],oY2=[2,2,2,3];
+  List<int> oX3=[1,2,2,2],oY3=[3,3,2,1];
   paintShape(oX0,oY0,ORG,0);
   paintShape(oX1,oY1,ORG,1);
   paintShape(oX2,oY2,ORG,2);
@@ -47,14 +47,14 @@ void createShape()
   paintShape(gX,gY,GRN,1);
   paintShape(gX,gY,GRN,2);
   paintShape(gX,gY,GRN,3);
-  List<int> cX0=[2,2,3,3],cY0=[2,3,1,2];
-  List<int> cX1=[1,2,2,3],cY1=[2,2,3,3];
+  List<int> cX0=[1,2,2,3],cY0=[2,2,3,3];
+  List<int> cX1=[2,2,3,3],cY1=[2,3,1,2];
   paintShape(cX0,cY0,CYN,0);
   paintShape(cX1,cY1,CYN,1);
   paintShape(cX0,cY0,CYN,2);
   paintShape(cX1,cY1,CYN,3);
-  List<int> bX0=[2,2,3,3],bY0=[1,2,2,3];
-  List<int> bX1=[1,2,2,3],bY1=[3,3,2,2];
+  List<int> bX0=[1,2,2,3],bY0=[3,3,2,2];
+  List<int> bX1=[2,2,3,3],bY1=[1,2,2,3];
   paintShape(bX0,bY0,BLU,0);
   paintShape(bX1,bY1,BLU,1);
   paintShape(bX0,bY0,BLU,2);

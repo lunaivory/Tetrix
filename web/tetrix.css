@@ -39,6 +39,15 @@ h1, p {
   height : 20px;
   width  : 20px;
 }
+.preview_block
+{
+  position : absolute;
+  left : 600px;
+  top  : 140px;
+  background-color : black;
+  height : 10px;
+  width  : 10px;
+}
 
 .score_box
 {

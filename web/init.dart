@@ -13,6 +13,10 @@ const BDX = 425;//board left of css
 const BDY = 100;//board top of css
 const LEN = 20;//the length of a block in css
 
+const PBX = 700;
+const PBY = 140;
+const PLEN= 10;
+
 const SUM = 7;//kinds of brick style
 const BGC = -1;
 const RED = 0;
@@ -44,6 +48,7 @@ Random random = new Random();
 User usr;
 
 List<List<List<List<int>>>> shape;
+List<List<DivElement>> previewBox;
 
 DivElement scoreBox, levelBox;
 DivElement theEnd;
@@ -55,6 +60,8 @@ int LEVEL=0;
 int levelCnt=0;
 int DURATION=50;
 int scoreMultiplier=100;
+int debugg=0;
+int nextcolor;
 Animator animator = new Animator();
 
 void init()
@@ -70,6 +77,7 @@ void init()
   scoreBox.text = "Score : 0"+" "+"Level "+LEVEL.toString();
   scoreSum=0;
   createShape();
+  createPreviewBox();
 }
 void startGame()
 {
@@ -88,4 +96,44 @@ void gameOver()
   theEnd.classes.add("end_box");
   theEnd.text="The End QQ";
   animator.stop();
+}
+
+String colorToString(int hue)
+{
+  switch(hue)
+  {
+    case(RED): return(strRED);  break;
+    case(ORG): return(strORG);  break;
+    case(YLW): return(strYLW);  break;
+    case(GRN): return(strGRN);  break;
+    case(CYN): return(strCYN);  break;
+    case(BLU): return(strBLU);  break;
+    case(PPL): return(strPPL);  break;
+    case(BGC): return(strBGC);  break;
+    default:   return(strBGC);  break;
+  }
+}
+
+void createPreviewBox()
+{
+  previewBox = new List(5);
+  for(int i=0 ; i<5 ; i++) previewBox[i] = new List(5);
+  for(int i=0 ; i<5 ; i++)
+    for(int j=0 ; j<5 ; j++)
+    {
+      previewBox[i][j] = new DivElement();
+      previewBox[i][j].classes.add("preview_block");
+      previewBox[i][j].style.left = (PLEN*i+PBX).toString()+"px";
+      previewBox[i][j].style.top  = (PLEN*j+PBY).toString()+"px";
+      previewBox[i][j].style.backgroundColor = colorToString(BGC);
+      document.body.nodes.add(previewBox[i][j]);
+    }
+  
+} 
+
+void paintPreviewBox()
+{
+  for(int i=0 ; i<5 ; i++)
+    for(int j=0 ; j<5 ; j++)
+      previewBox[i][j].style.backgroundColor = colorToString(shape[nextcolor][0][i][j]);
 }
