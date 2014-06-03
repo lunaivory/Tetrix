@@ -2,6 +2,7 @@ library tetra;
 import 'init.dart';
 import 'board.dart';
 import 'score.dart';
+import 'dart:js';
 
 class Tetra
 {
@@ -40,6 +41,7 @@ class Tetra
   }
   void toBottom(Board inBoard)
   {
+    var fall_sound = new JsObject(context['fall_sound'],[0]);
     while(!check(inBoard))  y++;
     y--;
   }

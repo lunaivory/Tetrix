@@ -4,6 +4,7 @@ import 'board.dart';
 import 'user.dart';
 import 'init.dart';
 import 'dart:html';
+import 'dart:js';
 
 void score(Board inBoard)
 {
@@ -19,7 +20,8 @@ void score(Board inBoard)
     for(int j=0 ; move>=0&&j<ROW ; j++) inBoard.colorBoard[j][move] = inBoard.colorBoard[j][i];
     move--;
   }
-  if(toDelete!=0) inBoard.rePaint();
+  if(toDelete!=0) {inBoard.rePaint();
+  var remove_sound = new JsObject(context['remove_sound'],[0]);}
   scoreSum += toDelete*scoreMultiplier;
   if(toDelete!=0 && levelCnt>LEVEL*3){  DURATION=DURATION-5; LEVEL++;  scoreMultiplier=scoreMultiplier+50;}
   scoreBox.text = scoreSum.toString();

@@ -32,6 +32,12 @@ height:100%;
   left:10%;
 }
 
+.key_box{
+  left: 50%;
+  top : 100%;
+  width:200px;
+}
+
 .egg{
   top:0%;
   left:0%;
@@ -83,7 +89,7 @@ height:100%;
   -webkit-animation: test 1s linear 0s 1;
 }
 
-.egg, .textbox, .background_img, .button, .name_input, .start_page{
+.egg, .textbox, .background_img, .button, .name_input, .start_page, .key_box{
   position:absolute;
   font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
   margin:0;

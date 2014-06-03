@@ -7,6 +7,46 @@
     <link rel="stylesheet" href="tetrix.css">
   </head>
   <body>
+    <script>
+      var play_sound = function(temp){
+        embed=document.createElement('object');
+          embed.setAttribute('id','music');
+          embed.setAttribute('type','audio/mp3');
+          embed.setAttribute('data', '123.mp3');
+          embed.setAttribute('autostart', true);
+          embed.setAttribute('loop', true);
+          embed.setAttribute('height', 0);
+          embed.setAttribute('width', 0);
+          document.getElementsByTagName('body')[0].appendChild(embed);
+        return;
+    }
+      var fall_sound = function(temp){
+              embed1=document.createElement('object');
+                embed1.setAttribute('id','music');
+                embed1.setAttribute('type','audio/mp3');
+                embed1.setAttribute('data', 'fall.mp3');
+                embed1.setAttribute('autostart', true);
+                embed1.setAttribute('height', 0);
+                embed1.setAttribute('width', 0);
+                document.getElementsByTagName('body')[0].appendChild(embed1);
+              return;
+          }
+      var remove_sound = function(temp){
+              embed2=document.createElement('object');
+                embed2.setAttribute('id','music');
+                embed2.setAttribute('type','audio/mp3');
+                embed2.setAttribute('data', 'remove.mp3');
+                embed2.setAttribute('autostart', true);
+                embed2.setAttribute('height', 0);
+                embed2.setAttribute('width', 0);
+                document.getElementsByTagName('body')[0].appendChild(embed2);
+              return;
+          }
+      var stop_sound = function(temp){
+          document.getElementsByTagName('body')[0].removeChild(embed);
+              return;
+      }
+    </script>
     <div class="start_page" > <!-- line 22 ~ 106 in css -->
        <img src='photo/start-2.png' class="background_img" width=850px height=640px>
        <div class="name_input">
@@ -22,6 +62,7 @@
              <img class="screen" src="photo/screen.png"  width=347px height=583px> 
              <div class="box"></div>  
           </div>
+          <img class="key_box" src="photo/key.png">
     </div>
     
      <div class="high_result disappear"> <!-- line 138~182 in css -->

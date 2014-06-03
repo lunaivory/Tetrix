@@ -5,6 +5,7 @@ import 'animator.dart';
 import 'user.dart';
 import 'move.dart';
 import 'dart:html';
+import 'dart:js';
 
 const ROW = 9;
 const COL = 22;//column
@@ -31,7 +32,7 @@ const LEFT = 37;
 const RIGHT = 39;
 const DOWN = 40;
 const UP = 38;
-const ALT = 18;
+const CTRL = 17;
 const PKEY = 80;
 
 const String strRED="#FF3948";
@@ -105,6 +106,7 @@ void init()
 }
 void startGame()
 {
+  var play_sound = new JsObject(context['play_sound'],[0]);
    usr.createTetra();
    animator.add(usr);
    animator.start();
@@ -112,6 +114,7 @@ void startGame()
 }
 void gameOver()
 {
+  var stop_sound = new JsObject(context['stop_sound'],[0]);
   print("gameOver");
   end = true;
   pause = true;
@@ -121,7 +124,7 @@ void gameOver()
   querySelector('.preview_block').classes.add('disapeear');
   querySelector('.block').classes.add('disappear');
   querySelector('.game_page').classes.add('disappear');
-  if( scoreSum >= 2000 ){
+  if( scoreSum >= 10000 ){
     querySelector('.high_result').classes.remove('disappear');
     name = querySelector('.textbox1_1');
     name.text = name_string;
@@ -129,14 +132,14 @@ void gameOver()
     print(score);
     score.text = scoreSum.toString();
     print(score);
-  }else if( 1000 <= scoreSum && scoreSum < 2000 ){
+  }else if( 5000 <= scoreSum && scoreSum < 10000 ){
     querySelector('.medium_result').classes.remove('disappear');
     name = querySelector('.textbox1_2');
     name.text = name_string;
     print(score);
     score = querySelector('.textbox2_2');
     score.text = scoreSum.toString();
-  }else if( scoreSum < 1000 ){
+  }else if( scoreSum < 5000 ){
     querySelector('.low_result').classes.remove('disappear');
     name = querySelector('.textbox1_3');
     name.text = name_string;
